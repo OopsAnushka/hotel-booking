@@ -27,7 +27,7 @@ const clerkWebhooks = async (req, res) => {
                     _id: data.id,
                     email: data.email_addresses[0].email_address,
                     // Fix: Map name correctly (combining first and last name as example)
-                    username: data.first_name + " " + data.last_name, 
+                    username: (data.first_name || "") + " " + (data.last_name || ""),
                     // Fix: Map image correctly
                     image: data.image_url, 
                     // Fix: Initialize the array
@@ -39,7 +39,7 @@ const clerkWebhooks = async (req, res) => {
             case "user.updated": {
                 const userData = {
                     email: data.email_addresses[0].email_address,
-                    username: data.first_name + " " + data.last_name,
+                    username: (data.first_name || "") + " " + (data.last_name || ""),
                     image: data.image_url,
                 };
                 await User.findByIdAndUpdate(data.id, userData);
