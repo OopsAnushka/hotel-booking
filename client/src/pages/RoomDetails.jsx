@@ -113,7 +113,7 @@ useEffect(() => {
         <div key={index} className='flex items-start gap-2'>
           <img src={spec.icon} alt={`${spec.title}-icon`} className='w-6.5' />
           <div>
-            <p className='texxt-base'>{spec.title}</p>
+            <p className='text-base'>{spec.title}</p>
             <p className='text-gray-500'>{spec.description}</p>
           </div>
         </div>

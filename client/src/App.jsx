@@ -29,7 +29,7 @@ const {showHotelReg} = useAppContext();
 <Routes >
   <Route path='/' element={<Home/>}/>
   <Route path='/rooms' element={<AllRooms/>}/>
-  <Route path='/rooms/:d' element={<RoomDetails/>}/>
+  <Route path='/rooms/:id' element={<RoomDetails/>}/>
   <Route path='/my-booking' element={<MyBooking/>}/>
   <Route path='/owner' element={<Layout/>}>
     <Route index element={<Dashboard/>} />
