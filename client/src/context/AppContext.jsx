@@ -20,7 +20,7 @@ export const AppProvider = ({ children }) => {
     const [searchedCities, setSearchedCities] = useState([])
     const fetchUser = async () =>{
         try {
-            const { data } = await axios.get('/api/user', {
+            const { data } = await axios.get('/api/user/get-user', {
     headers: { Authorization: `Bearer ${await getToken()}` }})
             if(data.success){
                 setIsOwner(data.role === "hotelOwner");

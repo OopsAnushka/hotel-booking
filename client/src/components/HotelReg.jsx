@@ -15,14 +15,14 @@ const [city, setCity] = useState("")
 const onSubmitHandler = async (event) => {
   try {
     event.preventDefault();
-    const{data} = await axios.post('/api/hotel', {name, contact,address, city}, {headers: {Authorization: `Bearer ${await getToken()}`}})
+    const{data} = await axios.post('/api/hotels', {name, contact,address, city}, {headers: {Authorization: `Bearer ${await getToken()}`}})
    if(data.success){
     toast.success(data.message)
     setIsOwner(true)
     setShowHotelReg(false);
 
    }else{
-    toast.error(error.message)
+    toast.error(data.message)
    }
   } catch (error) {
     toast.error(error.message)

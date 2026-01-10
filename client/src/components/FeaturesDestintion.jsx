@@ -1,7 +1,7 @@
 import React from 'react'
 import { roomsDummyData } from '../assets/assets'
 import HotelCard from './HotelCard'
-import Titel from './Title'
+import Title from './Title'
 import { Navigate, useNavigate } from 'react-router-dom'
 
 const FeaturesDestintion = () => {
@@ -10,7 +10,7 @@ const FeaturesDestintion = () => {
   return (
     <div className='flex flex-col items-center justify-center px-6 md:px-16 lg:px-5 bg-slate-50 py-10'>
     
-      <Titel title='Featured Destination' subTitle='Discover our handpicked selection for exceptional properties around the world, offering unparalleled luxury and unforgettable experience.'/>
+      <Title title='Featured Destination' subTitle='Discover our handpicked selection for exceptional properties around the world, offering unparalleled luxury and unforgettable experience.'/>
 
     <div className='flex flex-wrap items-center justify-evenly gap-6 mt-10'>
         {roomsDummyData.slice(0,4).map((room, index)=>(
