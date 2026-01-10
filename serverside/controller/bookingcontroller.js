@@ -22,7 +22,7 @@ const checkAvailability = async({ checkInDate, checkOutDate, room})=>{
 //POST / api/ bookings/ check-availability
 export const checkAvailabilityAPI = async(req, res)=>{
     try {
-        const { room, checkInDate, checkOutDate } = req.bpdy;
+        const { room, checkInDate, checkOutDate } = req.body;
         const isAvailable = await checkAvailability({checkInDate,checkOutDate, room});
         res.json({success: true, isAvailable})
     } catch (error) {
@@ -36,7 +36,7 @@ export const checkAvailabilityAPI = async(req, res)=>{
 
 export const createBooking = async(req, res)=>{
     try {
-        const { room, checkInDate, checkOutDate } = req.bpdy;
+        const { room, checkInDate, checkOutDate, guests } = req.body;
         const user = req.user._id;
 
         //before booking check Availability
@@ -83,7 +83,7 @@ export const createBooking = async(req, res)=>{
 export const getUserBooking = async (req,res) => {
     try {
        const user = req.user._id;
-       const booking = await Booking.find({user}).populate("room hotel").Sort({createdAt: -1}) 
+       const booking = await Booking.find({user}).populate("room hotel").sort({createdAt: -1}) 
        res.json({success: true, booking})
     } catch (error) {
      res.json({success: false, message: "Failed to fetch booking"})
