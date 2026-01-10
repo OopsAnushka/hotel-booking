@@ -6,7 +6,7 @@ import { requireAuth } from '@clerk/express';
     const userRouter = express.Router();
 
     
-   userRouter.get('/get-user', requireAuth(), getUserData);
+   userRouter.get('/get-user', protect, getUserData);
     userRouter.post('/store-recent-search', protect, storeRecentSearchCities);
 
   export default userRouter;
