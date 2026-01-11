@@ -5,13 +5,15 @@ import { Outlet } from 'react-router-dom'
 import { useAppContext } from '../../context/AppContext'
 
 const Layout = () => {
-   const {isOwner, navigate} = useAppContext()
+   const {isOwner, navigate, userDataLoaded} = useAppContext()
 
    useEffect(()=>{
-    if(!isOwner){
+    if(userDataLoaded && !isOwner){
        navigate('/')
     }
-   },[isOwner])
+   },[isOwner, userDataLoaded])
+
+if (!userDataLoaded) return <div>Loading...</div>
 
   return (
     <div className='flex flex-col h-screen'>

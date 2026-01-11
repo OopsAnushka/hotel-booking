@@ -16,6 +16,7 @@ export const AppProvider = ({ children }) => {
     const { getToken } = useAuth();
 
     const [isOwner, setIsOwner] = useState(false)
+    const [userDataLoaded, setUserDataLoaded] = useState(false);
     const [showHotelReg, setShowHotelReg] = useState(false)
     const [searchedCities, setSearchedCities] = useState([])
     const fetchUser = async () =>{
@@ -32,9 +33,14 @@ export const AppProvider = ({ children }) => {
         } catch (error) {
             toast.error(error.message)
         }
-        
+        finally {
+        // SET LOADING TO TRUE REGARDLESS OF SUCCESS/FAIL
+        setUserDataLoaded(true); 
     }
+    };
 
+
+    
 
     useEffect(()=>{
       if(user){
@@ -43,7 +49,7 @@ export const AppProvider = ({ children }) => {
     },[user])
 
 const value ={
-     currency, navigate, user, getToken, isOwner, setIsOwner, axios, showHotelReg, setShowHotelReg, searchedCities, setSearchedCities
+     currency, navigate, user, getToken, isOwner, setIsOwner, axios, showHotelReg, setShowHotelReg, searchedCities, setSearchedCities ,userDataLoaded
 }
     return (
        <AppContext.Provider value={value}>

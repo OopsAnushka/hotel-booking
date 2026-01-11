@@ -3,7 +3,7 @@ import User from "../models/User.js";
 export const protect = async (req, res, next) => {
   try {
     // FIX 1: Use req.auth() as a function (fixes the deprecation warning)
-    const { userId } = req.auth();
+   const userId = req.auth.userId || req.auth().userId;
 
     if (!userId) {
       return res.json({ success: false, message: "Not authenticated" });
