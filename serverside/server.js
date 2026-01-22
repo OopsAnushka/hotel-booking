@@ -13,11 +13,7 @@ import bookingRouter from "./routes/bookingRoutes.js";
 await connectDB()
 connectCloudinary();
 const app = express()
-// serverside/server.js
-app.use(cors({
-    origin: 'https://stay-space-woad.vercel.app', // Your Vercel Link
-    credentials: true
-}));
+app.use(cors()) 
 
 //API to listen to clerk webhooks
 app.post("/api/clerk", express.raw({ type: 'application/json' }), clerkWebhooks);

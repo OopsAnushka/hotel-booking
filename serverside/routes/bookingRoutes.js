@@ -6,7 +6,7 @@ const bookingRouter = express.Router();
 
 bookingRouter.post('/check-availability', checkAvailabilityAPI);
 bookingRouter.post('/book', protect, createBooking);
-bookingRouter.post('/user', protect, getUserBooking);
-bookingRouter.post('/hotel', protect, getHotelBooking);
+bookingRouter.get('/user', protect, getUserBooking);
+bookingRouter.get('/hotel', protect, getHotelBooking);
 
 export default bookingRouter;

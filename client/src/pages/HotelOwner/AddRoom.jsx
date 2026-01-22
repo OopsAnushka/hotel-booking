@@ -56,9 +56,9 @@ const AddRoom = () => {
             pricePerNight: 0,
             amenities: {
                 'Free WiFi': false,
-                'Free BreakFast': false,
+                'Free Breakfast': false,
                 'Room Service': false,
-                'Mountain view': false,
+                'Mountain View': false,
                 'Pool Access' : false
             }
         })
