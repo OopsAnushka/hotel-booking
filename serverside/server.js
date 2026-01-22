@@ -13,6 +13,7 @@ import bookingRouter from "./routes/bookingRoutes.js";
 await connectDB()
 connectCloudinary();
 const app = express()
+// serverside/server.js
 app.use(cors()) 
 
 //API to listen to clerk webhooks
