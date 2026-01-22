@@ -8,13 +8,14 @@ const checkAvailability = async({ checkInDate, checkOutDate, room})=>{
     try {
         const bookings = await Booking.find({
             room,
-            checkInDate: {$lte: checkOutDate},
-            checkOutDate: {$gte: checkInDate},
+            checkInDate: {$lt: checkOutDate},
+            checkOutDate: {$gt: checkInDate},
         });
         const isAvailable = bookings.length === 0; 
         return isAvailable;
     } catch (error) {
-       console.error(error.message); 
+       console.error(error.message);
+       throw error; 
     }
 }
 
@@ -65,7 +66,7 @@ export const createBooking = async(req, res)=>{
        const booking = await Booking.create({
         user,
         room,
-        hotel: roomData._id,
+        hotel: roomData.hotel._id,
         guests: +guests,
         checkInDate,
         checkOutDate,
