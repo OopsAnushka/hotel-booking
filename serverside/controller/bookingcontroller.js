@@ -66,7 +66,7 @@ export const createBooking = async(req, res)=>{
        const booking = await Booking.create({
         user,
         room,
-        hotel: roomData.hotel._id,
+        hotel: roomData._id,
         guests: +guests,
         checkInDate,
         checkOutDate,
