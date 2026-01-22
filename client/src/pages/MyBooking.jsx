@@ -11,7 +11,7 @@ const MyBooking = () => {
     const fetchUserBookings = async () => {
         try {
             // FIX 1: Changed .get() to .post() to match your backend route
-            const { data } = await axios.post('/api/booking/user', {}, {
+            const { data } = await axios.get('/api/booking/user', {}, {
                 headers: { Authorization: `Bearer ${await getToken()}` }
             })
             
